@@ -19,12 +19,37 @@
 
 <header class="hero-section">
     <h3 class="header-text">Welcome to the Online Car Dealership, {{ current_user.email }}</h3>
+    <h1>Login Here</h1>
+    <main class="container car_form">
+        <div class="row">
+            <aside class="col-12 col-md-6">
+                <h2>Add Your Car!</h2>
+                {% include 'car_form.html' %}
+            </aside>
+        </div>
+    </main>
+
+
 </header>
 
 <div class="container">
     <h3>Here are your profile details: </h3>
     <li class="list-group-item">Email: {{ current_user.email }}</li>
     <li class="list-group-item">Token: {{ current_user.token }}</li>
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://media.giphy.com/media/W1UDfKNosF2Wz6IoQM/giphy.gif" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{{car.make }} {{ car.model }}</strong> ({{ car.model_year }})</h5>
+                <p class="card-text">Category - {{ car.type_ }} <br> Horsepower - {{ car.horsepower }}HP <br> License Plate - {{ car.license }}</p>
+                <p>MSRP ${{ car.price }}</p>
+            </div>     
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock content %}

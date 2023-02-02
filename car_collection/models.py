@@ -70,7 +70,7 @@ class Car(db.Model):
     random_captcha = db.Column(db.String)
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self, make, model, model_year, type_, price, horsepower, license, random_captcha, user_token):
+    def __init__(self, make, model, model_year, type_, price, horsepower, license, random_captcha, user_token, id=''):
         self.id = self.set_id()
         self.make = make
         self.model = model 
