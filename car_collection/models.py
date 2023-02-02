@@ -62,7 +62,7 @@ class Car(db.Model):
     id = db.Column(db.String, primary_key=True)
     make = db.Column(db.String(150))
     model = db.Column(db.String(200), nullable=True)
-    model_year = db.column(db.Integer)
+    model_year = db.Column(db.Integer)
     type_ = db.Column(db.String(100)) #suv, sedan, coupe, truck, van, etc.
     price = db.Column(db.Numeric(precision=12, scale=2))
     horsepower = db.Column(db.Integer)
@@ -89,7 +89,7 @@ class Car(db.Model):
         return f"The following car has been added: {self.model_year} {self.make} {self.model}"
 
     
-class CarSchema(ma.ModelSchema):
+class CarSchema(ma.Schema):
     class Meta:
         fields = ['id', 'make', 'model', 'model_year', 'type_', 'price', 'horsepower', 'license', 'random_captcha']
 
